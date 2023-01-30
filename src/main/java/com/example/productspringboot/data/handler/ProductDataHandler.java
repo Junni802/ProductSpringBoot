@@ -6,4 +6,6 @@ public interface ProductDataHandler {
 
     ProductEntity save(String productId, String productName, int productPrice, int productStock);
 
+    ProductEntity getById(String productId);
+
 }

@@ -6,4 +6,6 @@ public interface ProductDAO {
 
     ProductEntity save(ProductEntity productEntity);
 
+    ProductEntity getById(String productId);
+
 }

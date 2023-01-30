@@ -11,4 +11,6 @@ public interface ProductService {
 
     ProductDto save(String productId, String productName, int productPrice, int productStock);
 
+    ProductDto getById(String productId);
+
 }

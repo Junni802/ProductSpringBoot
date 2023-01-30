@@ -1,12 +1,12 @@
 package com.example.productspringboot.data.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.productspringboot.data.entity.ProductEntity;
+import lombok.*;
 
-@AllArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Builder
 public class ProductDto {
 
@@ -17,5 +17,14 @@ public class ProductDto {
     private int productPrice;   // 상품가격
 
     private int productStock;   // 상품 재고
+
+    public ProductEntity toEntity() {
+        return ProductEntity.builder()
+                .productId(productId)
+                .productName(productName)
+                .productPrice(productPrice)
+                .productStock(productStock)
+                .build();
+    }
 
 }

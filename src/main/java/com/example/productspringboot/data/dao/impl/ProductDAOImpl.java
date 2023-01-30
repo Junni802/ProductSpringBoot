@@ -19,4 +19,10 @@ public class ProductDAOImpl implements ProductDAO {
         productRepository.save(productEntity);
         return productEntity;
     }
+
+    @Override
+    public ProductEntity getById(String productId) {
+        ProductEntity productEntity = productRepository.getById(productId);
+        return productEntity;
+    }
 }
