@@ -3,7 +3,7 @@
     <property name="moduleId" value="ProductSpringBoot"/><!-- moduleId는 프로젝트가 설치된 폴더명 또는 구분할 수 있는 식별자이면 됨 -->
     <property name="type" value="springboot"/><!-- 로그파일명을 구성하는 인자 -->
     <property name="logback" value="logback"/><!-- log를 저장할 최종 디렉토리명 -->
-    <property name="logdir" value="D:\Workspace\LogFiles"/>
+    <property name="logdir" value="C:\LofFiles"/>
 
     <!-- Appenders -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -11,7 +11,7 @@
             <level>DEBUG</level>
         </filter>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger{30} %msg%n</pattern>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
         </encoder>
     </appender>
 

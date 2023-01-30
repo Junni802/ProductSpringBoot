@@ -2,8 +2,9 @@ package com.example.productspringboot.conroller;
 
 import com.example.productspringboot.data.dto.ProductDto;
 import com.example.productspringboot.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/api/v1/product-api")
 public class ProductController {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     ProductService productService;
 
@@ -35,7 +38,27 @@ public class ProductController {
 
     @GetMapping("/product/{productId}")
     public ProductDto getById(@PathVariable String productId){
+        long startTime = System.currentTimeMillis();
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", "getProduct");
+
+        ProductDto productDto = productService.getById(productId);
+
+        LOGGER.info(
+                "[getProduct] Response :: productId = {}, productName = {}, productPrice = {}, productStock = {}, Response Time = {}ms",
+                productDto.getProductId(),
+                productDto.getProductName(), productDto.getProductPrice(), productDto.getProductStock(),
+                (System.currentTimeMillis() - startTime));
+
         return productService.getById(productId);
+    }
+
+    @PostMapping("log-test")
+    public void logTest(){
+        LOGGER.trace("Trace Log");
+        LOGGER.debug("Debug Log");
+        LOGGER.info("Info Log");
+        LOGGER.warn("Warn Log");
+        LOGGER.error("Error Log");
     }
 
 }
