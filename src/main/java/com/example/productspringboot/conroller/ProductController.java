@@ -52,13 +52,6 @@ public class ProductController {
         return productService.getById(productId);
     }
 
-
-    public String plus(){
-        int a = 10;
-        int b = 20;
-        return a+b+"";
-    }
-
     @PostMapping("log-test")
     public void logTest(){
         LOGGER.trace("Trace Log");
